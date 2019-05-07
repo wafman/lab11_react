@@ -8,7 +8,7 @@ const Header = () => {
   )
 }
 
-class Content extends React.Component{
+class Counter extends React.Component{
   constructor(props){
     super(props);
 
@@ -40,7 +40,7 @@ class Content extends React.Component{
   render(){
     return (
       <div>
-        <h3>{this.state.count}</h3>
+        <p>{this.state.count}</p>
         <button onClick={this.handlePositiveClick}>+ADD+</button>
         <button onClick={this.handleNegativeClick}>-SUBTRACT-</button>
       </div>
@@ -54,7 +54,7 @@ class App extends React.Component {
     return (
       <React.Fragment>
         <Header />
-        <Content />
+        <Counter />
       </React.Fragment>
     );
   }
