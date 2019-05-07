@@ -25,15 +25,18 @@ class Counter extends React.Component{
   
   handlePositiveClick = e => {
     e.preventDefault();
-    let count = this.state.count;
-    count += 1;
+    let count = this.state.count +1;
     this.setState({count}); 
   }
   
   handleNegativeClick = e => {
     e.preventDefault();
     let count = this.state.count;
-    count -= 1;
+    if(this.state.count === 0){
+      return count;
+    } else {
+      count -= 1;
+    }
     this.setState({count});
   }
 
