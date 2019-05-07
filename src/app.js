@@ -14,6 +14,7 @@ class Counter extends React.Component{
 
     this.state = {
       count: 0,
+      clicks: 0,
     };
   }
 
@@ -26,24 +27,30 @@ class Counter extends React.Component{
   handlePositiveClick = e => {
     e.preventDefault();
     let count = this.state.count +1;
+    let clicks = this.state.clicks +1;
     this.setState({count}); 
+    this.setState({clicks})
   }
   
   handleNegativeClick = e => {
     e.preventDefault();
     let count = this.state.count;
+    let clicks = this.state.clicks;
     if(this.state.count === 0){
-      return count;
+      clicks += 1;
     } else {
       count -= 1;
+      clicks += 1;
     }
     this.setState({count});
+    this.setState({clicks});
   }
 
   render(){
     return (
       <div>
-        <p>{this.state.count}</p>
+        <p>Total Clicks: {this.state.clicks}</p>
+        <p>Current Click status: {this.state.count}</p>
         <button onClick={this.handlePositiveClick}>+ADD+</button>
         <button onClick={this.handleNegativeClick}>-SUBTRACT-</button>
       </div>
